@@ -3,7 +3,6 @@
 Dense ViT features proposed in "Vision Transformers for Dense Prediction"
 Modified from: https://github.com/intel-isl/DPT
 """
-from regex import T
 import torch
 import torch.nn as nn
 import timm
