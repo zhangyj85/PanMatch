@@ -1,0 +1,43 @@
+{
+    "task": "flow",
+    "mode": "demo",
+
+    "environment":{
+        "deterministic": true,
+        "seed": 1234
+    },
+
+    "model": {                              // 使用的模型
+        "name": "UniFormer_FlowFormer",
+        "max_flow": 800,
+        "freeze_bn": true,
+        "conf_forward": false,
+        "tile_forward": false               // 特征匹配不使用 tile, 其他情况下使用 tile 的结果会更好. 当光流超出 tile 范围时可考虑进行图像降采样
+    },
+
+    "record": {                             // 保存路径
+        "path": "../vis"
+    },
+
+    "train": {                              // 模型加载地址
+        "resume":"../ckpt/PanMatch_stage3_60k.pth"
+    },
+
+    "data": {                               // 待匹配图像路径
+        "im0": "../assets/pose/02.png",
+        "im1": "../assets/pose/01.png",
+        "K0": [                             // 假设相机内参已知, 可计算相对深度
+            [577.870605, 0.000000, 319.500000],
+            [0.000000, 577.870605, 239.500000],
+            [0, 0, 1]
+        ],
+        "K1": [
+            [577.870605, 0.000000, 319.500000],
+            [0.000000, 577.870605, 239.500000],
+            [0, 0, 1]
+        ],
+        "query": [600, 380],                // 查寻点坐标, (w,h) 格式
+        "mean": [0.485, 0.456, 0.406],
+        "std":  [0.229, 0.224, 0.225]
+    }
+}
