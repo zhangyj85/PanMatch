@@ -40,11 +40,11 @@ Place the PanMatch weights in the `/ckpt` folder, and place the DINOv2 weights i
 ```
 conda create -n PanMatch python=3.11
 conda activate PanMatch
-conda install "numpy<2"
 conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 conda install tqdm matplotlib scikit-image
 pip install timm==0.4.12
-pip install opencv-python tensorboard imath einops h5py kornia poselib loguru yacs
+pip install opencv-python tensorboard imath einops h5py kornia poselib loguru yacs kornia_moons
+pip install "numpy<2"
 ```
 
 ### inference
